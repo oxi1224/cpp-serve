@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello world</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="main">
+    <h1>Welcom to my website</h1>
+    <a href="/protected/">Go to protected</a>
+  </div>
+  <div class="form-wrapper">
+    <form id="login-form">
+      <label for="login">
+        Login <input type="text" id="login" name="login">
+      </label>
+      <label for="password">
+        Password <input type="password" id="password" name="password">
+      </label>
+      <button id="loginBtn">Login</button>
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById("login-form");
+    const loginInput = document.getElementById("login");
+    const passwordInput = document.getElementById("password");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const res = await fetch("http://localhost:4000/api/login/", {
+        method: "POST",
+        cache: "no-cache",
+        body: `${loginInput.value}\n${passwordInput.value}`
+      });
+      const response = await res.text();
+      if (res.status !== 200) alert(response);
+      else alert("Successfully logged in");
+    });
+  </script>
+</body>
+</html>
