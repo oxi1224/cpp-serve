@@ -16,7 +16,7 @@ cpp-serve is an HTTP server written from scratch with different useful features 
 (**REQUIRES CPP 17 AT MINIMUM**)
 Install via CMAKE or use the standalone ``cpp-serve.hpp``
 ## Usage
-See [features](#features) and /examples/ in source code.
+See [features](#features) and [/examples/](https://github.com/oxi1224/cpp-serve/tree/main/examples) in source code.
 
 ## Features
 **Automatically serving static files**
